@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 
 const dbUrl = process.env.MONGO_URI;
 
-if (!dbUrl) {
-    console.log("MONGO_URI is not defined");
-    process.exit(1);
-}
+console.log("Mongo URI exists:", !!dbUrl);
 
 mongoose
     .connect(dbUrl)
