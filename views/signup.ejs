@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <div class="auth-box">
+
+        <h2>ثبت نام</h2>
+
+        <% if (errors && errors.length > 0) { %>
+
+        <div class="alert-error-signup">
+
+            <ul>
+
+                <% errors.forEach(error => { %>
+
+                    <li><%= error.message %></li>
+
+                <% }) %>
+
+            </ul>
+
+        </div>
+
+        <% } %>
+        
+
+        <form action="/signup" method="POST">
+
+            <div class="input-field">
+                <span><i class="fa fa-user"></i></span>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="نام کاربری"
+                    required
+                >
+            </div>
+
+            <div class="input-field">
+                <span><i class="fa fa-lock"></i></span>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="رمز عبور"
+                    required
+                >
+            </div>
+
+            <button class="btn update-btn">
+                ثبت نام
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            قبلاً ثبت نام کرده‌اید؟
+            <a href="/login">ورود</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

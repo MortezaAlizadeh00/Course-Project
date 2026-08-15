@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/cart.css">
+    <title>سبد خرید</title>
+</head>
+<body>
+<div class="container">
+
+    <h1 class="page-title">🛒 سبد خرید</h1>
+
+    <% if(carts.length > 0){ %>
+
+        <% carts.forEach(item=>{ %>
+
+            <div class="cart-item">
+
+                <div class="course-info">
+                    <div class="course-title">
+                        <%= item.course.title %>
+                    </div>
+
+                    <div class="course-price">
+                        <%= item.course.price %> تومان
+                    </div>
+                </div>
+
+                <a href="/cart/remove/<%= item._id %>" class="remove-btn">
+                    حذف
+                </a>
+
+            </div>
+
+        <% }) %>
+
+        <div class="total-box">
+
+            <span class="total-text">
+                جمع کل
+            </span>
+
+            <span class="total-price">
+                <%= totalPrice %> تومان
+            </span>
+
+        </div>
+
+        <button class="checkout-btn">
+            ثبت سفارش
+        </button>
+
+    <% } else { %>
+
+        <div class="empty-cart">
+            سبد خرید شما خالی است.
+        </div>
+
+    <% } %>
+
+</div>
+
+</body>
+</html>

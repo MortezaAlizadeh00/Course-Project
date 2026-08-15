@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>سفارشات کاربران</title>
+
+    <style>
+
+        body{
+            direction:rtl;
+            background:#f5f5f5;
+            font-family:tahoma;
+            padding:40px;
+        }
+
+        .user-box{
+            background:#fff;
+            border-radius:10px;
+            padding:20px;
+            margin-bottom:30px;
+            box-shadow:0 5px 15px rgba(0,0,0,.1);
+        }
+
+        .user-title{
+            font-size:24px;
+            color:#2563eb;
+            margin-bottom:15px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th,td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+            text-align:center;
+        }
+
+        th{
+            background:#2563eb;
+            color:#fff;
+        }
+
+        .total{
+            margin-top:20px;
+            font-size:20px;
+            font-weight:bold;
+            color:green;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>سفارشات کاربران</h1>
+
+<% usersOrders.forEach(user => { %>
+
+<div class="user-box">
+
+    <h2 class="user-title">
+        <%= user.username %>
+    </h2>
+
+    <table>
+
+        <tr>
+            <th>نام دوره</th>
+            <th>قیمت</th>
+        </tr>
+
+        <% user.courses.forEach(course => { %>
+
+        <tr>
+
+            <td><%= course.title %></td>
+
+            <td><%= course.price %> تومان</td>
+
+        </tr>
+
+        <% }) %>
+
+    </table>
+
+    <div class="total">
+
+        جمع کل:
+        <%= user.totalPrice %>
+        تومان
+
+    </div>
+
+</div>
+
+<% }) %>
+
+</body>
+</html>

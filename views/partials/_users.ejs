@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <% users.forEach(user => { %>
+    <li>
+      <%= user.id %> => <%= user.username %> - <% if (user.role === "ADMIN") {
+      %> (مدیر) <% } else { %> (کاربر) <% } %>
+    </li>
+    <% }) %>
+  </ul>
+</div>
